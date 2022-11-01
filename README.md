@@ -28,10 +28,10 @@ Descriptive statistics, hypothesis mental map, univariate, bivariate and multiva
 Normalization, Standardization, Encoding, Outlines.
 
 **Machine Learning Model**<br>
-SARIMAX, Random Forest Regressor, XGBoost Regressor.
+Logistic Regression, Random Forest, XGBoost, Voting Classifier, Pipelines.
 
 **Feature Selection**<br>
-Filter method, Embeeded methods, Wrapper method(Boruta).
+Filter method - Anova, Chi2, Embeeded methods.
 
 **Hyperparameters Tunning**<br>
 Gridsearch Cross Validation.
