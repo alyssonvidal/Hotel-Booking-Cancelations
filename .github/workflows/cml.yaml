@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v3
       - uses: iterative/setup-cml@v1
       - name: Train model
         env:
@@ -13,7 +13,6 @@ jobs:
         run: |
           pip install -r requirements.txt
           python train.py
-
           cat scores.json >> report.md
           echo "![](./confusion_matrix.png)" >> report.md
           cml comment create report.md
