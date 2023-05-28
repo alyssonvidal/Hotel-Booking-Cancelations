@@ -1,0 +1,1 @@
+{"objective": "binary:logistic", "eval_metric": "auc", "booster": "gbtree", "learning_rate": 0.09971203875947736, "n_estimators": 150, "alpha": 2.957003467711026e-08, "lambda": 4.009830502312534e-07, "min_child_weight": 5, "colsample_bytree": 0.4584833524080041, "scale_pos_weight": 1.696, "seed": 42}

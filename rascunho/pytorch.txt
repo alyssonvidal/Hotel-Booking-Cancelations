@@ -1,0 +1,95 @@
+
+for epoch in range(num_epochs):
+    train_loss, val_loss, val_acc = 0.0, 0.0, 0.0
+    
+    for inputs, labels in train_loader:
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels.unsqueeze(1))
+        loss.backward()
+        optimizer.step()
+        train_loss += loss.item()
+        
+    with torch.no_grad():
+        for inputs, labels in val_loader:
+            inputs, labels = inputs.to(device), labels.to(device)
+            outputs = model(inputs)
+            loss = criterion(outputs, labels.unsqueeze(dim=1))
+            val_loss += loss.item()
+            predicted = torch.round(outputs)
+            val_acc += (predicted == labels.unsqueeze(1)).sum().item() / len(labels)
+        
+    print(f"Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss/len(train_loader):.4f}, Val Loss: {val_loss/len(val_loader):.4f}, Val Acc: {val_acc/len(val_loader):.4f}")
+
+
+
+
+**************************************
+
+
+
+
+
+
+
+for epoch in range(num_epochs):
+    # Define o valor inicial da loss e acurácia
+    train_loss = 0.0
+    train_acc = 0.0
+    
+    # Loop de treinamento por batch
+    for i, data in enumerate(train_loader, 0):
+        # Separa os dados de entrada e saída do batch
+        inputs, labels = data
+        inputs = inputs.to(device)
+        labels = labels.to(device)
+        
+        # Zera os gradientes do otimizador
+        optimizer.zero_grad()
+        
+        # Faz a forward pass
+        outputs = model(inputs)
+        
+        # Calcula a loss
+        loss = criterion(outputs, labels.unsqueeze(1))
+        
+        # Faz a backward pass e atualiza os pesos
+        loss.backward()
+        optimizer.step()
+        
+        # Soma a loss do batch
+        train_loss += loss.item()
+        
+        # Calcula a acurácia do batch
+        predicted = torch.round(outputs)
+        correct = (predicted == labels.unsqueeze(1)).sum().item()
+        train_acc += correct / len(labels)
+        
+    # Calcula a acurácia média do treinamento
+    train_acc /= len(train_loader)
+        
+    # Avalia a performance do modelo no dataset de validação
+    val_loss = 0.0
+    val_acc = 0.0
+    model.eval()
+    with torch.no_grad():
+        for data in val_loader:
+            inputs, labels = data
+            inputs = inputs.to(device)
+            labels = labels.to(device)
+            
+            outputs = model(inputs)
+            loss = criterion(outputs, labels.unsqueeze(dim=1))
+            val_loss += loss.item()
+            
+            # Calcula a acurácia
+            predicted = torch.round(outputs)
+            correct = (predicted == labels.unsqueeze(1)).sum().item()
+            val_acc += correct / len(labels)
+        
+    # Calcula a acurácia média da validação
+    val_acc /= len(val_loader)
+        
+    # Imprime as métricas de treinamento e validação
+    print(f"Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss/i:.4f}, Train Acc: {train_acc:.4f}, Val Loss: {val_loss/len(val_loader):.4f}, Val Acc: {val_acc:.4f}")

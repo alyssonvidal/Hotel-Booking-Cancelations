@@ -1,0 +1,33 @@
+#data_prep = pd.get_dummies(data_prep, columns = ['market_segment','customer_type'])
+
+# le = LabelEncoder()
+# data_prep['hotel'] = le.fit_transform(data_prep['hotel'])
+
+# # Aplicar OrdinalEncoder na coluna "meal"
+# oe = OrdinalEncoder(categories=[['SC', 'HB', 'BB', 'FB']])
+# data_prep['meal'] = oe.fit_transform(data_prep[['meal']])
+
+# # Filtering only top 10 most used agency and companies
+# n = 11
+# top_agents = data_prep['agent'].value_counts().nlargest(n).index
+# top_companies = data_prep['company'].value_counts().nlargest(n).index
+# data_prep['agentd'] = np.where(data_prep['agent'].isin(top_agents), data_prep['agent'], -1)
+# data_prep['company'] = np.where(data_prep['company'].isin(top_companies), data_prep['company'], -1)
+
+# # Aplicar OneHotEncoder nas colunas "market_segment" e "customer_type"
+# ohe = OneHotEncoder()
+# ohe_data = ohe.fit_transform(data_prep[['market_segment', 'customer_type','continentes']])
+# ohe_cols = [f'{col}_{cat}' for col, cats in zip(['market_segment', 'customer_type','continentes'], ohe.categories_) for cat in cats]
+# xxx = pd.concat([data_prep, pd.DataFrame(ohe_data.toarray(), columns=ohe_cols)], axis=1)
+
+# pipeline = make_pipeline(
+#     LabelEncoder(),
+#     OrdinalEncoder(categories=[['SC', 'HB', 'BB', 'FB']]),
+#     OneHotEncoder(),
+#     #FunctionTransformer(lambda x: x['country'].map(x['country'].value_counts(normalize=True))),
+#     FunctionTransformer(lambda x: np.where(x.isin(x.value_counts().nlargest(10).index), x, -1)),
+#     LGBMClassifier()
+# )
+
+# count = CountEncoder(cols=data_prep[['country']], return_df=True) 
+# data_prep= count.fit_transform(data_prep)

@@ -1,0 +1,10 @@
+Para criar um ambiente virtual para seu projeto de machine learning, você pode usar a biblioteca venv que vem com a instalação padrão do Python 3. A seguir, são os passos para criar um ambiente virtual para seu projeto:
+
+    Navegue até o diretório raiz do seu projeto de machine learning.
+    Crie um novo ambiente virtual com o comando python3 -m venv myenv, onde myenv é o nome que você deseja dar ao seu ambiente virtual.
+    Ative o ambiente virtual executando o comando source myenv/bin/activate no Linux ou MacOS ou .\myenv\Scripts\activate no Windows.
+    Instale as bibliotecas necessárias para seu projeto dentro do ambiente virtual ativado usando o comando pip install -r requirements.txt.
+
+O ambiente virtual permite que você isole as dependências do seu projeto do sistema operacional hospedeiro. Isso significa que você pode ter diferentes versões de bibliotecas ou pacotes para projetos diferentes sem conflitos. Além disso, é mais fácil para outros usuários reproduzirem seu ambiente de desenvolvimento. Para sair do ambiente virtual, execute o comando deactivate.
+
+Lembre-se de atualizar o Dockerfile com o comando para instalar as bibliotecas necessárias dentro do ambiente virtual recém-criado.

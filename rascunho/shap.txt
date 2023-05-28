@@ -1,0 +1,50 @@
+model = LGBMClassifier(**params)#**lgbm_best_params
+model.fit(X_train, y_train)
+
+
+#explainer = shap.Explainer(model, X_train)
+#shap_values = explainer(X_val.iloc[0, :])
+
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X_val)
+
+
+# f = lambda x: model.predict_proba(x)[:,1]
+# med = X_train.median().values.reshape((1,X_train.shape[1]))
+# explainer = shap.Explainer(f, med)
+# shap_values = explainer(X_val) ##shap_values = explainer(X_val.iloc[0:3000,:])
+
+
+start_index = 1
+end_index = 2
+predction = model.predict(X_val[start_index:end_index])[0]
+#predction = model.predict(X_val[0,:])[0]
+
+
+shap.initjs()
+
+print('Predction:', predction)
+shap.force_plot(explainer.expected_value[1], shap_values[1][start_index:end_index], X_val[start_index:end_index])
+
+#shap.force_plot(explainer.expected_value[1], shap_values[1][0,:], X_train.iloc[0,:])
+
+
+
+shap.initjs()
+shap.force_plot(explainer.expected_value[1], shap_values[1][1,:], X_train.iloc[1,:])
+
+
+shap_values[0].shape, shap_values[1].shape
+
+
+shap.summary_plot(shap_values[1], X_val)
+plt.tight_layout()
+plt.show()
+
+
+shap.dependence_plot('lead_time',shap_values[1], X_val, interaction_index=None)
+
+shap.dependence_plot('lead_time',shap_values[1], X_val, interaction_index='market_segment')
+
+
+

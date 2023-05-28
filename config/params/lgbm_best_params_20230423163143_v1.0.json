@@ -1,0 +1,1 @@
+{"boosting_type": "gbdt", "num_leaves": 300, "max_depth": 12, "learning_rate": 0.09666604087878206, "lambda_l1": 1.6832743536084784e-05, "lambda_l2": 0.00022482211623996306, "bagging_freq": 6, "min_child_samples": 4, "boost_from_average": true, "scale_pos_weight": 1}

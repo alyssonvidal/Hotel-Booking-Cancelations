@@ -1,0 +1,2 @@
+docker build -t nome-da-imagem .
+docker run nome-da-imagem
