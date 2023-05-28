@@ -135,7 +135,7 @@ def CM(y, y_pred):
     disp.plot(cmap="Blues", values_format="d")  
     #plt.show()
     plt.savefig('confusion_matrix.png', dpi=120)
-    print("Score: \n", classification_report(y,y_pred))
+    #print("Score: \n", classification_report(y,y_pred))
 
 def ROC(model, y, y_prob, model_dict):
     score_metrics_auc = pd.DataFrame(columns=['Model','AUC']) 
