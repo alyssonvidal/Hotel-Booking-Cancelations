@@ -27,6 +27,6 @@ jobs:
           # Post reports as comments in GitHub PRs
           echo "\n## Model Performance" >> report.md
           echo "Train/Valiadtion Scores" >> report.md   
-          echo "\n![Exemplo de imagem](confusion_matrix.png)" >> report.md
+          #echo "\n![Exemplo de imagem](confusion_matrix.png)" >> report.md
           cat scores.json >> report.md
           cml comment create report.md
