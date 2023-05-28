@@ -8,7 +8,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: 'Train my model'
         env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          #repo_token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{github.token}}
+        with:
+          tag_game: myTag
         run: |
           pip install -r requirements.txt
           python train.py
