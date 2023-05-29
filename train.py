@@ -189,7 +189,7 @@ df['std'] = df.std(axis=1)
 json_scores = df.to_json()
 
 with open('scores.json', 'w') as file:
-    file.write(json_scores)
+    file.write(json_scores, file)
 
 
 #import subprocess
