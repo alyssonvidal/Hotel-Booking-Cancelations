@@ -134,7 +134,8 @@ def CM(y, y_pred):
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
     disp.plot(cmap="Blues", values_format="d")  
     #plt.show()
-    plt.savefig('confusion_matrix.png', dpi=120)
+    plt.savefig('confusion_matrix.png')
+    plt.close()
     #print("Score: \n", classification_report(y,y_pred))
 
 def ROC(model, y, y_prob, model_dict):
@@ -177,7 +178,7 @@ for i in range(len(y_prob)):
         y_pred[i] = 0  
 
 CM(y,y_pred)
-ROC(lgbm, y, y_prob, 'lgbm') 
+#ROC(lgbm, y, y_prob, 'lgbm') 
 
 scores = cross_validate(lgbm, X, y, cv = Kfold, scoring=['accuracy','precision','recall','f1','roc_auc'], return_train_score=True)
 
