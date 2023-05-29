@@ -27,4 +27,4 @@ jobs:
           cat scores.json >> report.md
           echo "![](./consufion_matrix.png)" >> report.md
 
-          cml comment create
+          #cml comment create
