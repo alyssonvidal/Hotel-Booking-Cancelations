@@ -1,5 +1,5 @@
 name: model-training
-on: [push],[pull-request]
+on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
