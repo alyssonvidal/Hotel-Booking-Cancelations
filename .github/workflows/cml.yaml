@@ -23,6 +23,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Post reports as comments in GitHub PRs
+          touch >> report.md
           cat scores.json >> report.md
           echo "![](./consufion_matrix.png)" --md >> report.md
 
