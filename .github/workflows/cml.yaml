@@ -24,5 +24,6 @@ jobs:
         run: |
           # Post reports as comments in GitHub PRs
           cat scores.json >> report.md
-          #cat confusion_matrix.png >> report.md
+          echo "![](./consufion_matrix.png)" --md >> report.md
+
           cml comment create report.md
