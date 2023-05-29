@@ -1,5 +1,5 @@
 name: your-workflow-name
-run-name: ${{ github.actor }} is testing out GitHub Actions 
+#run-name: ${{ github.actor }} is testing out GitHub Actions 
 on: [pull_request]
 jobs:
   run:
@@ -18,7 +18,7 @@ jobs:
       - name: Train Model
         run: |
           python train.py
-          
+
       - name: Write CML Report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
