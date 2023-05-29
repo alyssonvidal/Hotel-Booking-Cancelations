@@ -192,7 +192,19 @@ with open('scores.json', 'w') as file:
     file.write(json_scores)
 
 
+#import subprocess
+#import shutil
 
+
+
+
+# Executa o script de shell
+#subprocess.run(["bash", "script.sh"])
+
+# with open("report.md", "a") as file:
+#     # Adiciona a linha de comando para incluir a imagem no arquivo
+#     #file.write("![Confusion Matrix](confusion_matrix.png)\n")
+#     file.write("<img src='/home/alysson/projects/Hotel-Booking-Cancelations/confusion_matrix.png'>\n")
 
 # json_data = json.dumps(lgbm_scores)
 # print(json_data)

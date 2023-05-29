@@ -25,6 +25,6 @@ jobs:
           # Post reports as comments in GitHub PRs
           touch report.md
           cat scores.json >> report.md
-          echo "![](./consufion_matrix.png)" --md >> report.md
+          echo "![](./consufion_matrix.png)" >> report.md
 
-          cml comment create report.md
+          cml comment create
