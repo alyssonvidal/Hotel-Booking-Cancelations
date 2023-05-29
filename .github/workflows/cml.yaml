@@ -1,4 +1,5 @@
 name: your-workflow-name
+run-name: ${{ github.actor }} is testing out GitHub Actions 
 on: [push]
 jobs:
   run:
@@ -6,7 +7,17 @@ jobs:
     # optionally use a convenient Ubuntu LTS + DVC + CML image
     # container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
       - uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "This job's status is ${{ job.status }}."
       - uses: actions/setup-python@v4
       - uses: iterative/setup-cml@v1
       - name: Install Dependencies
@@ -22,6 +33,6 @@ jobs:
         run: |
           # Post reports as comments in GitHub PRs
           cat scores.json >> report.md
-          cat confusion_matrix.png >> report.md
-   
+          #cat confusion_matrix.png >> report.md
+
           cml comment create report.md
