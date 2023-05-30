@@ -7,3 +7,4 @@ lightgbm
 xgboost
 dvc
 kaggle
+pycountry
