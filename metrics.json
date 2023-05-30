@@ -1,1 +1,1 @@
-{"Train Mean": 0.82412, "Train Std": 0.00087, "Val Mean": 0.81883, "Val Std": 0.00198}
+{"F1 Train": 0.82743, "F1 Validation": 0.81405}

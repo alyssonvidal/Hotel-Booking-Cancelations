@@ -29,16 +29,13 @@ stages:
   train:
     cmd: python train.py
     deps:
-    - path: data/data_processed/data_processed.csv
-      md5: 434b02140ca4f5f7abfdc8fec0c16596
-      size: 19249358
     - path: train.py
-      md5: 2a05821e388e165327c1b5c999e29821
-      size: 7284
+      md5: f1e2afde645ac5a2aca218c432401be3
+      size: 6741
     outs:
     - path: confusion_matrix.png
-      md5: 8fa1f94b1d1e001d4c26b0875b643a7a
-      size: 24575
+      md5: d1bcc348e3f2697a0cb00a87b75b00e3
+      size: 23672
     - path: metrics.json
-      md5: 2c192d21ade677fb3c9816df0b959a36
-      size: 2350
+      md5: c01d10fe7e25841267835bc165b5efd3
+      size: 47
