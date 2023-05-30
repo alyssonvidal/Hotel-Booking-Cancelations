@@ -185,35 +185,11 @@ scores = cross_validate(lgbm, X, y, cv = Kfold, scoring=['accuracy','precision',
 df = pd.DataFrame.from_dict(scores).T
 df['mean_folds5'] = df.mean(axis=1)
 df['std'] = df.std(axis=1)
-#display(df[['mean_folds5','std']])
-json_scores = df.to_json()
+json_scores = df[['mean_folds5','std']].to_json()
 
 with open('metrics.json', 'w') as file:
     file.write(json_scores)
 
-# with open('metrics.json', 'w') as file:
-#     file.write(json_scores, file)
-
-
-#import subprocess
-#import shutil
-
-
-
-
-# Executa o script de shell
-#subprocess.run(["bash", "script.sh"])
-
-# with open("report.md", "a") as file:
-#     # Adiciona a linha de comando para incluir a imagem no arquivo
-#     #file.write("![Confusion Matrix](confusion_matrix.png)\n")
-#     file.write("<img src='/home/alysson/projects/Hotel-Booking-Cancelations/confusion_matrix.png'>\n")
-
-# json_data = json.dumps(lgbm_scores)
-# print(json_data)
-# # Salvando o JSON em um arquivo
-# with open('scores.json', 'w') as file:
-#     file.write(json_data)
 
 
 
