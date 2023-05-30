@@ -41,7 +41,7 @@ np.random.seed(RANDOM_SEED)
 data = pd.read_csv('data/data_processed/data_processed.csv')
 
 data_prep = data.copy()
-data_prep = data.sample(60000)
+data_prep = data_prep.sample(60000)
 
 ##Encoding
 
@@ -183,15 +183,11 @@ CM(y,y_pred)
 scores = cross_validate(lgbm, X, y, cv = Kfold, scoring=['accuracy','precision','recall','f1','roc_auc'], return_train_score=True)
 
 f1_train_mean = round(np.mean(scores['train_f1']),5)
-f1_train_std = round(np.std(scores['train_f1']),5)
 f1_val_mean = round(np.mean(scores['test_f1']),5)
-f1_val_std = round(np.std(scores['test_f1']),5)
 
 f1_results = {
-'Train Mean': f1_train_mean,
-'Train Std': f1_train_std,
-'Val Mean': f1_val_mean,
-'Val Std': f1_val_std        
+'F1 Train': f1_train_mean,
+'F1 Validation': f1_val_mean    
 }
 
 json_data = json.dumps(f1_results)
