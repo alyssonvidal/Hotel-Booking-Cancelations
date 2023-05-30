@@ -38,7 +38,7 @@ np.random.seed(RANDOM_SEED)
 #dotenv.load_dotenv(dotenv.find_dotenv())
 #ROOT_DIR = os.getenv('ROOT_DIR')
 #ROOT_DIR = '/home/alysson/projects/Hotel-Booking-Cancelations'
-data = pd.read_csv('data/data_processed/hotel_bookings_processed.csv')
+data = pd.read_csv('data/data_processed/data_processed.csv')
 
 data_prep = data.copy()
 

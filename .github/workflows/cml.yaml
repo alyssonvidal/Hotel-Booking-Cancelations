@@ -23,9 +23,14 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Post reports as comments in GitHub PRs
-          touch report.md
-          cat scores.json --show-md >> report.md
-          #cat scores.json >> comment.md
-          #echo "![](./consufion_matrix.png)" >> report.md
+          dvc repro
+          
+          git fetch --prune
+          dvc metrics diff --show-md main > report.md
 
-          cml comment create --publish=true comment.md
+          echo "## Metrics"
+          cml-publish confusion_matrix.png --md >> report.md
+          cml-send comment report.md
+
+
+          
