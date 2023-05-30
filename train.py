@@ -182,14 +182,19 @@ CM(y,y_pred)
 
 scores = cross_validate(lgbm, X, y, cv = Kfold, scoring=['accuracy','precision','recall','f1','roc_auc'], return_train_score=True)
 
-df = pd.DataFrame.from_dict(scores).T
-df['mean_folds5'] = df.mean(axis=1)
-df['std'] = df.std(axis=1)
-json_scores = df[['mean_folds5','std']].to_json()
+f1_train_mean = round(np.mean(scores['train_f1']),5)
+f1_train_std = round(np.std(scores['train_f1']),5)
+f1_val_mean = round(np.mean(scores['test_f1']),5)
+f1_val_std = round(np.std(scores['test_f1']),5)
+
+f1_results = {
+'Train Mean': f1_train_mean,
+'Train Std': f1_train_std,
+'Val Mean': f1_val_mean,
+'Val Std': f1_val_std        
+}
+
+json_data = json.dumps(f1_results)
 
 with open('metrics.json', 'w') as file:
-    file.write(json_scores)
-
-
-
-
+    file.write(json_data)
