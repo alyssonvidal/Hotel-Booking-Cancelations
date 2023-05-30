@@ -1,4 +1,4 @@
-name: your-workflow-name
+name: CI
 on: [push]
 jobs:
   run:
@@ -6,8 +6,13 @@ jobs:
     # optionally use a convenient Ubuntu LTS + DVC + CML image
     # container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
+      - name: Checkout
       - uses: actions/checkout@v3
+
+      - name: Enviroment Setup
       - uses: actions/setup-python@v4
+      - with:
+          python-version: 3.10.6          
       - uses: iterative/setup-cml@v1
 
       - name: Install Dependencies
@@ -24,7 +29,7 @@ jobs:
         run: |
           # Post reports as comments in GitHub PRs
           dvc repro
-          
+
           git fetch --prune
           dvc metrics diff --show-md main > report.md
 
