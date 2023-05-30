@@ -134,7 +134,7 @@ def CM(y, y_pred):
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
     disp.plot(cmap="Blues", values_format="d")  
     #plt.show()
-    plt.savefig('confusion_matrix.png')
+    plt.savefig('confusion_matrix.png', dpi=120)
     plt.close()
     #print("Score: \n", classification_report(y,y_pred))
 

@@ -30,12 +30,12 @@ stages:
     cmd: python train.py
     deps:
     - path: train.py
-      md5: f1e2afde645ac5a2aca218c432401be3
-      size: 6741
+      md5: 576fa79fc59da7a5dd7eef113f132c6b
+      size: 6750
     outs:
     - path: confusion_matrix.png
-      md5: d1bcc348e3f2697a0cb00a87b75b00e3
-      size: 23672
+      md5: e27e3304d15769d1ab9d5aa2a68e6859
+      size: 26658
     - path: metrics.json
       md5: c01d10fe7e25841267835bc165b5efd3
       size: 47
