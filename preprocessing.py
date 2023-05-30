@@ -2,20 +2,22 @@ import pandas as pd
 from datetime import datetime as dt
 import os
 import sys
-import dotenv
+#import dotenv
 import pycountry
 import pycountry_convert as pc
 
 
-dotenv.load_dotenv(dotenv.find_dotenv())
-ROOT_DIR = os.getenv('ROOT_DIR')
+#dotenv.load_dotenv(dotenv.find_dotenv())
+#ROOT_DIR = os.getenv('ROOT_DIR')
+
+ROOT_DIR = '/home/alysson/projects/Hotel-Booking-Cancelations'
 
 if ROOT_DIR not in sys.path:
     sys.path.append(ROOT_DIR)
 
 os.chdir(ROOT_DIR)
 
-DATA_RAW_PATH = os.path.join(ROOT_DIR, "data", "data_raw", "hotel_bookings.csv")
+DATA_RAW_PATH = os.path.join(ROOT_DIR, "data", "data_raw", "data_raw.csv")
 data_raw = pd.read_csv(DATA_RAW_PATH)
 
 data = data_raw.copy()
@@ -80,4 +82,4 @@ data = data.fillna(nan_replacements)
 
 data=data.reset_index(drop=True)
 
-data.to_csv(f"{ROOT_DIR}/data/data_processed/hotel_bookings_processed.csv", index=False)
+data.to_csv(f"{ROOT_DIR}/data/data_processed/data_processed.csv", index=False)

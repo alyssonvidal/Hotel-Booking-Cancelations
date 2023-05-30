@@ -28,4 +28,4 @@ jobs:
           #cat scores.json >> comment.md
           #echo "![](./consufion_matrix.png)" >> report.md
 
-          cml comment create comment.md
+          cml comment create --publish=true comment.md

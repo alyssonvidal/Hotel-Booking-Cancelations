@@ -188,8 +188,11 @@ df['std'] = df.std(axis=1)
 #display(df[['mean_folds5','std']])
 json_scores = df.to_json()
 
-with open('scores.json', 'w') as file:
-    file.write(json_scores, file)
+with open('metrics.json', 'w') as file:
+    file.write(json_scores)
+
+# with open('metrics.json', 'w') as file:
+#     file.write(json_scores, file)
 
 
 #import subprocess
