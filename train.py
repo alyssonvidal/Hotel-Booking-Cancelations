@@ -41,7 +41,7 @@ np.random.seed(RANDOM_SEED)
 data = pd.read_csv('data/data_processed/data_processed.csv')
 
 data_prep = data.copy()
-data_prep = data_prep.sample(60000)
+data_prep = data_prep.sample(50000)
 
 ##Encoding
 
