@@ -3,14 +3,14 @@ stages:
     cmd: python preprocessing.py
     deps:
     - preprocessing.py
-    - data/data_raw
+    - data/data_raw/data_raw.csv
     outs:
-    - data/data_processed
+    - data/data_processed/data_processed.csv
   train:
     cmd: python train.py
     deps:
     - train.py
-    - data/data_processed
+    - data/data_processed/data_processed.csv
     outs:
     - confusion_matrix.png
     metrics:
