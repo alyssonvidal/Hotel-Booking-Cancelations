@@ -84,4 +84,6 @@ data = data.fillna(nan_replacements)
 data=data.reset_index(drop=True)
 
 #data.to_csv(f"{ROOT_DIR}/data/data_processed/data_processed.csv", index=False)
+
+os.makedirs('data/data_processed', exist_ok=True)
 data.to_csv('data/data_processed/data_processed.csv', index=False)
