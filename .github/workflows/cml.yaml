@@ -18,7 +18,7 @@ jobs:
         run: |
           python train.py
 
-      - name: Write CML Report
+      - name: Report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
