@@ -17,14 +17,14 @@ jobs:
 
       - name: Train Model
         run: |
+          dvc repro
           python train.py
 
       - name: Report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+        run: |          
           dvc repro
-
           git fetch --prune
           dvc metrics diff --show-md main > report.md
 
