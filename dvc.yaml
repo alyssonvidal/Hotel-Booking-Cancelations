@@ -10,7 +10,9 @@ stages:
     cmd: python src/train.py
     deps:
     - data/data_processed/data_processed.csv
-    - src/train.py   
+    - src/train.py
+    outs:
+    - reports/images/confusion_matrix.png
     metrics:
     - reports/metrics/metrics.json:
         cache: false
