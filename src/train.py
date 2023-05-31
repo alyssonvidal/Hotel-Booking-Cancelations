@@ -10,7 +10,7 @@ import seaborn as sns
 # File / OS tools
 import json
 import os
-
+from config import Pathning
 
 # Machine Learning Models
 from xgboost import XGBClassifier
@@ -35,10 +35,11 @@ RANDOM_SEED = 42
 np.random.seed(RANDOM_SEED)
 
 
-#dotenv.load_dotenv(dotenv.find_dotenv())
 #ROOT_DIR = os.getenv('ROOT_DIR')
-#ROOT_DIR = '/home/alysson/projects/Hotel-Booking-Cancelations'
-data = pd.read_csv('data/data_processed/data_processed.csv')
+#data = pd.read_csv('data/data_processed/data_processed.csv')
+
+data = pd.read_csv(str(Pathning.DATA_PROCESSED_PATH / "data_processed.csv"))
+
 
 data_prep = data.copy()
 data_prep = data_prep.sample(60000)
@@ -192,5 +193,5 @@ f1_results = {
 
 json_data = json.dumps(f1_results)
 
-with open('metrics.json', 'w') as file:
+with open('./report/metrics/metrics.json', 'w') as file:
     file.write(json_data)

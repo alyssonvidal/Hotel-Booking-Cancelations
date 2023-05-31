@@ -5,6 +5,7 @@ import sys
 #import dotenv
 import pycountry
 import pycountry_convert as pc
+from config import Pathning
 
 
 #dotenv.load_dotenv(dotenv.find_dotenv())
@@ -18,8 +19,8 @@ import pycountry_convert as pc
 # os.chdir(ROOT_DIR)
 
 # DATA_RAW_PATH = os.path.join(ROOT_DIR, "data", "data_raw", "data_raw.csv")
-DATA_RAW_PATH = 'data/data_raw/data_raw.csv'
-data_raw = pd.read_csv(DATA_RAW_PATH)
+#DATA_RAW_PATH = 'data/data_raw/data_raw.csv'
+data_raw = pd.read_csv(str(Pathning.DATA_RAW_PATH / "data_raw.csv"))
 
 data = data_raw.copy()
 
@@ -85,5 +86,9 @@ data=data.reset_index(drop=True)
 
 #data.to_csv(f"{ROOT_DIR}/data/data_processed/data_processed.csv", index=False)
 
-os.makedirs('data/data_processed', exist_ok=True)
-data.to_csv('data/data_processed/data_processed.csv', index=False)
+os.makedirs(Pathning.DATA_PROCESSED_PATH, exist_ok=True)
+data.to_csv(str(Pathning.DATA_PROCESSED_PATH / "data_processed.csv"), index=False)
+
+
+print(len(data_raw))
+print(len(data))
