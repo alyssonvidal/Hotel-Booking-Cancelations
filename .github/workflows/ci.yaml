@@ -29,7 +29,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |          
 
-          dvc pull data --run-cache
+          dvc pull data_processed --run-cache
           dvc repro
 
           #Report Metrics
