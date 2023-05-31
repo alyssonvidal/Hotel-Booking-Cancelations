@@ -33,14 +33,14 @@ stages:
       md5: 434b02140ca4f5f7abfdc8fec0c16596
       size: 19249358
     - path: src/train.py
-      md5: cf7a0e992f4f7d72cf8f19d17fc515bc
-      size: 6768
+      md5: 7273d7bdcf31d3b43b7464a6a239d111
+      size: 6784
     outs:
-    - path: confusion_matrix.png
-      md5: e27e3304d15769d1ab9d5aa2a68e6859
-      size: 26658
-    - path: report/metrics/metrics.json
-      md5: c01d10fe7e25841267835bc165b5efd3
+    - path: reports/images/confusion_matrix.png
+      md5: 2799090d61b49e0dcc94b796874d5935
+      size: 30734
+    - path: reports/metrics/metrics.json
+      md5: 673ae34320a2eb895fe8ceaf60bbdf1d
       size: 47
   processing:
     cmd: python src/preprocessing.py

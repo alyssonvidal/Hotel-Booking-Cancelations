@@ -42,7 +42,7 @@ data = pd.read_csv(str(Pathning.DATA_PROCESSED_PATH / "data_processed.csv"))
 
 
 data_prep = data.copy()
-data_prep = data_prep.sample(60000)
+data_prep = data_prep.sample(40000)
 
 ##Encoding
 
@@ -135,7 +135,7 @@ def CM(y, y_pred):
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
     disp.plot(cmap="Blues", values_format="d")  
     #plt.show()
-    plt.savefig('confusion_matrix.png', dpi=120)
+    plt.savefig('./reports/images/confusion_matrix.png', dpi=120)
     plt.close()
     #print("Score: \n", classification_report(y,y_pred))
 
@@ -193,5 +193,5 @@ f1_results = {
 
 json_data = json.dumps(f1_results)
 
-with open('./report/metrics/metrics.json', 'w') as file:
+with open('reports/metrics/metrics.json', 'w') as file:
     file.write(json_data)
