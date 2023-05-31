@@ -29,5 +29,4 @@ jobs:
           dvc metrics diff --show-md main > report.md
 
           echo "## Metrics"
-          #echo "![](./confusion_matrix.png)" >> report.md
-          cml comment create report.md  
+          cml comment create report.md 

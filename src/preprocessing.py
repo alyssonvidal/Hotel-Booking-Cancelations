@@ -88,7 +88,3 @@ data=data.reset_index(drop=True)
 
 os.makedirs(Pathning.DATA_PROCESSED_PATH, exist_ok=True)
 data.to_csv(str(Pathning.DATA_PROCESSED_PATH / "data_processed.csv"), index=False)
-
-
-print(len(data_raw))
-print(len(data))

@@ -13,6 +13,7 @@ reports/images/confusion_matrix.png
 
 # Scrap Ideia File 
 /rascunho
+/help
 
 # Distribution / packaging
 .Python

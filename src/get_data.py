@@ -16,6 +16,8 @@ api.dataset_download_file('jessemostipak/hotel-booking-demand', file_name='hotel
 #SCRIPT_PATH = './scripts/get_data.sh'
 os.makedirs(Pathning.DATA_RAW_PATH, exist_ok=True)
 
+
+
 # # Adicionar permissão de execução ao script
 
 subprocess.run(["chmod", "+x", str(Pathning.SCRIPTS_PATH / "get_data.sh")])
