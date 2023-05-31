@@ -129,6 +129,10 @@ for col in data_prep[selected_features]:
 y = data_prep[target]
 X = data_prep[selected_features]
 
+
+
+os.makedirs('reports/images', exist_ok=True)
+
 def CM(y, y_pred):
     labels = ["Não Cancelado", "Cancelado"]
     cm = confusion_matrix(y, y_pred)
