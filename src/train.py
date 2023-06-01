@@ -42,7 +42,7 @@ data = pd.read_csv(str(Pathning.DATA_PROCESSED_PATH / "data_processed.csv"))
 
 
 data_prep = data.copy()
-data_prep = data_prep.sample(6000)
+data_prep = data_prep.sample(40000)
 
 ##Encoding
 

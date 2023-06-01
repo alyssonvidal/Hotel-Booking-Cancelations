@@ -32,6 +32,7 @@ jobs:
           dvc repro
 
           echo "## Metrics" >> report.md
+          echo "## Metrics" >> report.md
           git fetch --prune
           dvc metrics diff --show-md main > report.md
 

@@ -43,7 +43,7 @@ Filter Methods - Anova, Chi2, Embeeded Methods - LGBM, XGboost, Wrapper Methods 
 # Tools
 Languages: Python<br>
 IDE: Visual Studio Code, Jupyter Notebook<br>
-Frameworks: Pandas, Matplotlib, Seaborn, Sklearn, Pytorch<br>
+Frameworks: Pandas, Matplotlib, Sklearn, Pytorch, LightGBM, XGboost, Github Actions, DVC, Airflow, Optuna, SHAP<br>
 Metodology: CRISP-DM<br><br>
 
 # Next Steps
