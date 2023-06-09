@@ -184,7 +184,7 @@ class Plots:
         if save == True:
             plt.savefig(Path.CONFUSION_MATRIX_PATH, dpi=120)
 
-        plt.show()
+        #plt.show()
         #print("Score:\n", classification_report(y, yhat))
 
 

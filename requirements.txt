@@ -6,7 +6,6 @@ scikit-learn
 lightgbm
 xgboost
 dvc
-kaggle
 pycountry
 pycountry-convert
 mlflow
