@@ -36,50 +36,33 @@ RANDOM_SEED = 42
 np.random.seed(RANDOM_SEED)
 
 
-#ROOT_DIR = os.getenv('ROOT_DIR')
-#data = pd.read_csv('data/data_processed/data_processed.csv')
 
 data = pd.read_csv(Path.DATA_PROCESSED_PATH)
-
-
 data_prep = data.copy()
 data_prep = data_prep.sample(10000)
 
-##Encoding
+## Data Preparation
 data_prep = Preparation.Encoding(data_prep)
 SELECTED_FEATURES, DROP_FEATURES, TARGET = Preparation.SelectedFeatures(data_prep)
 ###xxx = Preparation.Standardization(data_prep_encoded, scaler_type='MinMaxScaler')
 
-print(TARGET,"\n")
-print(SELECTED_FEATURES,"\n")
-
-#print(data_prep)
-
 y = data_prep[TARGET]
 X = data_prep[SELECTED_FEATURES]
 
-hyper_tuner = HyperTuning(X, y)
-best_params, best_score = hyper_tuner.optimize(n_trials=50)
-print(best_params)
 
+
+# Hyperparamters Tuning
+hypeparamters = HyperTuning(X, y)
+best_params, best_score = hypeparamters.optimize(n_trials=50)
+
+
+# Cross Validation
 lgbm = LGBMClassifier(**best_params)
-
-
 y_pred, y_prob = MachineLearning.CrossValidationPredict(lgbm, X, y, number_folds=5, threshold=0.5)
 
-# print(y_pred,"\n")
-# print(y_prob,"\n")
-
-
-# os.makedirs(Path.PLOTS_FOLDER, exist_ok=True)
-# Plots.ConfusionMatrixPlot(y,y_pred,save=True)
-# # #ROC(lgbm, y, y_prob, 'lgbm') 
-
-
+# Scores
 metrics = Metrics.get_metrics(y, y_pred, y_prob)
 
-
-print(metrics)
 
 os.makedirs(Path.METRICS_FOLDER, exist_ok=True)
 with open(Path.METRICS_PATH, 'w') as file:

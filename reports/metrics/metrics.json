@@ -1,1 +1,1 @@
-{"Accuracy": 0.778, "Precision": 0.738, "Recall": 0.626, "F1": 0.677, "Auc": 0.747, "Entropy": 0.451}
+{"Accuracy": 0.781, "Precision": 0.758, "Recall": 0.608, "F1": 0.675, "AUC": 0.746, "Entropy": 0.448}

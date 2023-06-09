@@ -12,7 +12,7 @@ stages:
     - data/data_processed/data_processed.csv
     - src/train.py
     outs:
-    - reports/images/confusion_matrix.png
+    - reports/plots/confusion_matrix.png
     metrics:
     - reports/metrics/metrics.json:
         cache: false
