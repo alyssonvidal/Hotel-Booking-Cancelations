@@ -39,7 +39,7 @@ np.random.seed(RANDOM_SEED)
 
 data = pd.read_csv(Path.DATA_PROCESSED_PATH)
 data_prep = data.copy()
-data_prep = data_prep.sample(5000)
+data_prep = data_prep.sample(15000)
 
 ## Data Preparation
 data_prep = Preparation.Encoding(data_prep)
