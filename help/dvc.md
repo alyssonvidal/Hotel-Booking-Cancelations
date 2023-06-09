@@ -1,12 +1,17 @@
 
 dvc.init
 
-dvc remote add -d myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-YpykVY
+This is a folder on Google Driver: 1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
 
-dvc remote add --default myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-YpykVY
-
-dvc remote add myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-YpykVY
+dvc remote add -d myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
+dvc remote add --default myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
+dvc remote add myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
 
 dvc remote modify myremote gdrive_client_id 'client-id'
-
 dvc remote modify myremote gdrive_client_secret 'client-secret'
+
+dvc add data reports models
+
+
+git rm -r --cached 'data'
+git commit -m "stop tracking data"
