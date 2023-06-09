@@ -18,7 +18,7 @@ This study contains informations about a Ciy Hotel and a Resort Hotel in the per
 
 # Development Stages
 [**Data Preprocessing**](https://github.com/alyssonvidal/Bank-Marketing-Cluster/blob/main/notebooks/part01_preprocessing.ipynb)<br>
-Loading Data, Dealing with Missing Values, Dealing with Duplicated Values, Dealing with Strange Values, Fixing Data Types, Featrue Engieneering.
+Loading Data, Ducplicated Values, Missing Values, Strange Values, Data Types, Featrue Engieneering.
 
 [**Exploratory Data Analysis**](https://github.com/alyssonvidal/Bank-Marketing-Cluster/blob/main/notebooks/part02_eda.ipynb)<br>
 Mind Map Business, Hypotesis, Summary Table, Bivariated Analysis over Cancelations, Multivariated Analysis.
@@ -46,9 +46,13 @@ IDE: Visual Studio Code, Jupyter Notebook<br>
 Frameworks: Pandas, Matplotlib, Sklearn, Pytorch, LightGBM, XGboost, Github Actions, DVC, Airflow, Optuna, SHAP<br>
 Metodology: CRISP-DM<br><br>
 
-# Next Steps
+# Next Steps / Improvements
+
+### Business:
 - Check some features issues: the deposit_type has the wrong values on this dataset ​​and it is certainly an important feature to determine whether or not the guest will cancel. The status_reservation_date could be broken down into other variables so that we would not lose the date the check-in was performed, which can be an important feature.
 
 - Get to know agencies and companies better. Perhaps a ranking system for these agencies and companies would benefit the machine learning model. With the current information we have, it is not possible to know with much criteria the quality of agencies and companies.
+
+### Techinical:
 
 
