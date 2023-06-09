@@ -63,7 +63,11 @@ y_pred, y_prob = MachineLearning.CrossValidationPredict(lgbm, X, y, number_folds
 # Scores
 metrics = Metrics.get_metrics(y, y_pred, y_prob)
 
+# Plots
+Plots.ConfusionMatrixPlot(y, y_pred, save=True)
 
+
+#Create Report Folder and Files
 os.makedirs(Path.METRICS_FOLDER, exist_ok=True)
 with open(Path.METRICS_PATH, 'w') as file:
     metrics_json = json.dumps(metrics)
@@ -72,4 +76,4 @@ with open(Path.METRICS_PATH, 'w') as file:
 os.makedirs(Path.PARAMS_FOLDER, exist_ok=True)
 with open(Path.PARAMS_PATH, 'w') as file:
     params_json = json.dumps(best_params)
-    file.write(params_json)    
+    file.write(params_json)
