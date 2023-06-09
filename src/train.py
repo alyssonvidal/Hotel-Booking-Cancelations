@@ -39,7 +39,7 @@ np.random.seed(RANDOM_SEED)
 
 data = pd.read_csv(Path.DATA_PROCESSED_PATH)
 data_prep = data.copy()
-data_prep = data_prep.sample(10000)
+data_prep = data_prep.sample(5000)
 
 ## Data Preparation
 data_prep = Preparation.Encoding(data_prep)
@@ -53,7 +53,7 @@ X = data_prep[SELECTED_FEATURES]
 
 # Hyperparamters Tuning
 hypeparamters = HyperTuning(X, y)
-best_params, best_score = hypeparamters.optimize(n_trials=50)
+best_params, best_score = hypeparamters.optimize(n_trials=25)
 
 
 # Cross Validation

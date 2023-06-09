@@ -30,18 +30,18 @@ stages:
     cmd: python src/train.py
     deps:
     - path: data/data_processed/data_processed.csv
-      md5: 434b02140ca4f5f7abfdc8fec0c16596
-      size: 19249358
+      md5: bd978bcef65261d365511dd3d5288093
+      size: 19278227
     - path: src/train.py
-      md5: bb9f3bb35479b5e80938f65298f03132
-      size: 6830
+      md5: 1648ac656a23573a99365fe35b05b0ad
+      size: 2234
     outs:
-    - path: reports/images/confusion_matrix.png
-      md5: 2799090d61b49e0dcc94b796874d5935
-      size: 30734
     - path: reports/metrics/metrics.json
-      md5: 673ae34320a2eb895fe8ceaf60bbdf1d
-      size: 47
+      md5: 10be042805f79883c6553da0402ee786
+      size: 101
+    - path: reports/plots/confusion_matrix.png
+      md5: 803472db118b6eb9d48fbeba280b21e9
+      size: 23911
   processing:
     cmd: python src/preprocessing.py
     deps:
