@@ -1,1 +1,0 @@
-{"objective": "binary", "boosting_type": "dart", "num_leaves": 140, "max_depth": 11, "learning_rate": 0.0966, "reg_alpha": 9e-08, "reg_lambda": 0.30772, "subsample_freq": 5, "min_child_samples": 44}
