@@ -1,12 +1,20 @@
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import RobustScaler, MinMaxScaler
+from datetime import datetime as dt
 from config import Path
-
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
-from sklearn.metrics import accuracy_score, precision_score, recall_score, log_loss, roc_auc_score, f1_score
+import pycountry
+import pycountry_convert as pc
 from matplotlib import pyplot as plt
 import seaborn as sns
+
+
+#Feature Creation
+
+
+from sklearn.preprocessing import RobustScaler, MinMaxScaler
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
+from sklearn.metrics import accuracy_score, precision_score, recall_score, log_loss, roc_auc_score, f1_score
+
 from lightgbm import LGBMClassifier
 
 import optuna
@@ -14,6 +22,71 @@ import optuna
 #Global Seed
 RANDOM_SEED = 42
 np.random.seed(RANDOM_SEED)
+
+class Preprocessing:
+    @staticmethod
+    def Treatment(data: pd.DataFrame):
+        # Replace NaN values
+        nan_replacements = {"children": 0, "agent": 0, "company": 0}
+        data = data.fillna(nan_replacements)
+
+        # Convert String format to Datetime format YYYY-MM-DD
+        data['reservation_status_date'] = pd.to_datetime(data['reservation_status_date'])
+
+        # Fixing Data Types
+        data = data.astype({"children": int, "agent": int, "company": int})
+
+        # Removing strange values: No person, Negative ADR
+        data_new = data.loc[~((data['children'] == 0) & (data['adults'] == 0) & (data['babies'] == 0) & (data['reservation_status'] == 'Check-Out'))]
+        data_new = data.loc[~(data['adr'] < 0)]
+        pct_drop = 1-(len(data_new)/len(data))
+
+        return data_new, pct_drop
+    
+
+    @staticmethod
+    def Featurization(data):
+        # Feature Engineering
+        data['meal'] = data['meal'].replace("Undefined", "SC")
+        data["people"] = (data["adults"] + data["children"] + data["babies"])
+
+        data['kids'] = data['children'] + data['babies']
+        data['days_stay'] = data['stays_in_weekend_nights'] + data['stays_in_week_nights']
+
+        def add_country_names(df):
+            country_names = []
+            for country_code in df['country']:
+                try:
+                    country_name = pycountry.countries.get(alpha_3=country_code).name
+                except AttributeError:
+                    country_name = None
+                except LookupError:
+                    country_name = None
+                country_names.append(country_name)
+            df['country_name'] = country_names
+            return df
+
+        def add_continent(df):
+            continents = []
+            for country in df['country_name']:
+                try:
+                    country_code = pc.country_name_to_country_alpha2(country)
+                    continent_name = pc.country_alpha2_to_continent_code(country_code)
+                    continent_code = pc.convert_continent_code_to_continent_name(continent_name)
+                    continents.append(continent_code)
+                except:
+                    continents.append(None)
+            df['continentes'] = continents
+            return df
+
+        data = add_country_names(data)
+        data = add_continent(data)
+        data.loc[data['country'] == 'PRT', 'continentes'] = 'Native'
+
+        nan_replacements = {"children": 0, "agent": 0, "company": 0, "country": "Unknown", "country_name": "Unknown", "continentes": "Unknown"}
+        data = data.fillna(nan_replacements)
+
+        return data
 
 class Preparation:
     @staticmethod
@@ -149,7 +222,7 @@ class Metrics:
                 'Precision': round(prec, 3), 
                 'Recall': round(recall, 3), 
                 'F1': round(f1, 3),
-                'Auc': round(auc, 3),
+                'AUC': round(auc, 3),
                 'Entropy': round(entropy, 3)}
     
 class HyperTuning:

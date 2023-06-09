@@ -31,6 +31,8 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, roc_auc_sc
 from config import Path
 from utils import Preparation
 
+# if ROOT_DIR not in sys.path:
+#     sys.path.append(ROOT_DIR)
 
 
 #Global Seed
