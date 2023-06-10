@@ -13,13 +13,9 @@ api.authenticate()
 
 api.dataset_download_file('jessemostipak/hotel-booking-demand', file_name='hotel_bookings.csv')
 
-#SCRIPT_PATH = './scripts/get_data.sh'
 os.makedirs(Path.DATA_RAW_FOLDER, exist_ok=True)
 
-
-
-# # Adicionar permissão de execução ao script
+#Adicionar permissão de execução ao script
 
 subprocess.run(["chmod", "+x", str(Path.SCRIPTS_FOLDER / "get_data.sh")])
-#subprocess.run(["chmod", "+x", Pathning.SCRIPTS_PATH / + "get_data.sh"])
 subprocess.run(str(Path.SCRIPTS_FOLDER / "get_data.sh"), shell=True)

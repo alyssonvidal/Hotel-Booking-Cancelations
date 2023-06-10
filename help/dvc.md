@@ -23,5 +23,21 @@ dvc add data/data_processed/data_processed.csv
 dvc add reports/plots/confusion_matrix.png
 dvc add reports/metrics/metrics.json
 
+git rm -r --cached 'data/data_raw/data_raw.csv'
+git commit -m "stop tracking data/data_raw/data_raw.csv" 
+
+git rm -r --cached 'data/data_processed/data_processed.csv'
+git commit -m "stop tracking data/data_processed/data_processed.csv"
+
+git rm -r --cached 'data/reports/plots/confusion_matrix.png'
+git commit -m "stop tracking data/reports/plots/confusion_matrix.png"
+
+git rm -r --cached 'data/reports/metrics/metrics.json'
+git commit -m "stop tracking data/reports/metrics/metrics.json"
+
+
+
+
+
 
 rm -rf .dvc/cache
