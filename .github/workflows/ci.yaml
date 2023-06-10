@@ -10,7 +10,7 @@ jobs:
 
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
-      - uses: iterative/setup-cml@v1
+      - uses: iterative/setup-cml@v2
       - uses: iterative/setup-tools@v1
 
       - name: Install Dependencies
@@ -25,22 +25,23 @@ jobs:
         run: |
           python src/train.py
 
-      - name: Report DVC
+      - name: Report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |       
 
           echo "## Params" >> report.md
-
+          echo >> report.md
           cat reports/params/params.json >> report.md
 
+          echo >> report.md
           echo "## Metrics" >> report.md
-
+          echo >> report.md
           cat reports/metrics/metrics.json >> report.md
 
+          echo >> report.md
           echo "## Plots" >> report.md
-
-          echo "![](reports/plots/confusion_matrix.png)" >> report.md
-
+          echo >> report.md
+          echo "![](.reports/plots/confusion_matrix.png)" >> report.md
 
           cml comment create report.md
