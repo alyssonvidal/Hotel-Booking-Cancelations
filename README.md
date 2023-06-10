@@ -57,4 +57,7 @@ Metodology: CRISP-DM<br><br>
 
 ### Techinical:
 
+Substiruir essa linha no github/workflows/ci.yaml
+uses: iterative/setup-tools@v1  
+
 

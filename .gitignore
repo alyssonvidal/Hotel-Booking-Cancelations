@@ -2,7 +2,7 @@
 # /data
 # /models
 # /reports
-# data/data_processed/data_processed.csv
+data/data_processed/data_processed.csv
 # data/data_raw/data_raw.csv
 # reports/plots/confusion_matrix.png
 # reports/metrics/metrics.json
