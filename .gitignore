@@ -1,8 +1,5 @@
 # DVC Tracked Files
-# /data
-# /models
-# /reports
-data/data_processed/data_processed.csv
+# data/data_processed/data_processed.csv
 # data/data_raw/data_raw.csv
 # reports/plots/confusion_matrix.png
 # reports/metrics/metrics.json
@@ -14,7 +11,6 @@ mlruns/
 # Scrap Ideia File 
 rascunho/
 help/
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -42,8 +38,6 @@ share/python-wheels/
 MANIFEST
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -72,14 +66,11 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-
 # Scrapy stuff:
 .scrapy
 
 # Sphinx documentation
 docs/_build/
-
-
 
 # Jupyter Notebook
 .ipynb_checkpoints

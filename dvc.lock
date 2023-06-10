@@ -1,0 +1,31 @@
+schema: '2.0'
+stages:
+  preprocessing:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/data_raw/data_raw.csv
+      md5: 5bf588c5a949443e021fb7c847d31b27
+      size: 16855599
+    - path: src/preprocessing.py
+      md5: 728b8b2044aa44934d47659233c7ae52
+      size: 549
+    outs:
+    - path: data/data_processed/data_processed.csv
+      md5: 71e5a7701f7f8a1ea4184aebf65ba849
+      size: 7711882
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/data_processed/data_processed.csv
+      md5: 71e5a7701f7f8a1ea4184aebf65ba849
+      size: 7711882
+    - path: src/train.py
+      md5: 20c1282d545138ca6758ee08d4ae7a5d
+      size: 1966
+    outs:
+    - path: reports/metrics/metrics.json
+      md5: 361a4c999c6af08d551d528cf9c8068f
+      size: 101
+    - path: reports/plots/confusion_matrix.png
+      md5: 54f4b098ebedf6f7e0088fc0d3c6d302
+      size: 26337
