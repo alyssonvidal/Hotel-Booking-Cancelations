@@ -1,6 +1,6 @@
 [português (BR)](https://github.com/alyssonvidal/Hotel-Booking-Cancelations/blob/main/README_PT.md)
 
-<center><img src="/images/hotel.jpg" alt="logo" width="800" height="600"/></center>
+<center><img src="/images/hotel.jpg" alt="logo" width="600" height="480"/></center>
 
 # Problem Statement
 
@@ -8,7 +8,9 @@ One of the common main problems the hotels facing are cancellations. There are s
 
 This study contains informations about a Ciy Hotel and a Resort Hotel in the period between July 2015 and August 2017, the City Hotel is located in Lisbon, capital of Portugal and the Resort Hotel in Algarve, a coastal city also from Portugal.
 
-[glossário](https://github.com/alyssonvidal/Hotel-Booking-Cancelations/blob/main/referenses/glossary_PT.md)
+[glossário](https://github.com/alyssonvidal/Hotel-Booking-Cancelations/blob/main/references/glossary_PT.md)
+[dataset](https://www.sciencedirect.com/science/article/pii/S2352340918315191)
+
 
 # Objective
 

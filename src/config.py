@@ -25,6 +25,3 @@ class Path:
 
     PARAMS_FOLDER= ROOT_DIR / "reports" / "params"
     PARAMS_PATH = ROOT_DIR / "reports" / "params" / "params.json"
-
-
-    
