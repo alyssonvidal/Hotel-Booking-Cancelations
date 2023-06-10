@@ -7,7 +7,7 @@ from utils import Preprocessing
 
 #Collecting Data
 data_raw = pd.read_csv(Path.DATA_RAW_PATH)
-#data_raw = data_raw.sample(frac=0.4)
+data_raw = data_raw.sample(frac=0.4)
 
 #Preprocessing Steps
 data_new, drop_ratio = Preprocessing.Treatment(data_raw)
