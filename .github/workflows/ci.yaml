@@ -23,32 +23,44 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Preprocessing
-        run: |
-          python src/preprocessing.py    
+      # - name: Preprocessing
+      #   run: |
+      #     python src/preprocessing.py    
 
-      - name: Train Model
-        run: |
-          python src/train.py
+      # - name: Train Model
+      #   run: |
+      #     python src/train.py
 
       - name: Report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |       
 
-          echo "## Params" >> report.md
-          echo >> report.md
-          cat reports/params/params.json >> report.md
+          dvc repro   
 
-          echo >> report.md
-          echo "## Metrics" >> report.md
-          echo >> report.md
-          cat reports/metrics/metrics.json >> report.md
+          git fetch --prune
+          dvc metrics diff --show-md master > report.md
 
-          echo >> report.md
-          echo "## Plots" >> report.md
-          echo >> report.md
+          # Add figure to the report
+          echo "## Validating results by region"
           echo "![](reports/plots/confusion_matrix.png)" >> report.md
-
-
           cml comment create report.md
+
+
+
+          # echo "## Params" >> report.md
+          # echo >> report.md
+          # cat reports/params/params.json >> report.md
+
+          # echo >> report.md
+          # echo "## Metrics" >> report.md
+          # echo >> report.md
+          # cat reports/metrics/metrics.json >> report.md
+
+          # echo >> report.md
+          # echo "## Plots" >> report.md
+          # echo >> report.md
+          # echo "![](reports/plots/confusion_matrix.png)" >> report.md
+
+
+          # cml comment create report.md
