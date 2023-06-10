@@ -10,4 +10,3 @@ pycountry
 pycountry-convert
 mlflow
 optuna
-cml==1.0.0
