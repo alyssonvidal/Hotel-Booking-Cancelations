@@ -1,1 +1,1 @@
-{"objective": "binary", "boosting_type": "gbdt", "num_leaves": 180, "max_depth": 10, "learning_rate": 0.0997, "reg_alpha": 3.533e-05, "reg_lambda": 0.0017, "subsample_freq": 6, "min_child_samples": 11}
+{"objective": "binary", "boosting_type": "gbdt", "num_leaves": 100, "max_depth": 12, "learning_rate": 0.0802, "reg_alpha": 0.00730323, "reg_lambda": 0.007157, "subsample_freq": 3, "min_child_samples": 18}

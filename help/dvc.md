@@ -3,7 +3,9 @@ dvc.init
 
 This is a folder on Google Driver: 1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
 
-dvc remote add -d myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
+1JoXvKsC6O6fzfa7xrL114yf2u-YpykVY
+
+dvc remote add -d myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-YpykVY
 dvc remote add --default myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
 dvc remote add myremote gdrive://1JoXvKsC6O6fzfa7xrL114yf2u-arrVs2
 
@@ -20,3 +22,6 @@ dvc add data/data_raw/data_raw.csv
 dvc add data/data_processed/data_processed.csv
 dvc add reports/plots/confusion_matrix.png
 dvc add reports/metrics/metrics.json
+
+
+rm -rf .dvc/cache
