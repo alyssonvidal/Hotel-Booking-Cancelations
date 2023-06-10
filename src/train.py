@@ -32,12 +32,12 @@ X = data_prep[SELECTED_FEATURES]
 
 # Hyperparamters Tuning
 hypeparamters = HyperTuning(X, y)
-best_params, best_score = hypeparamters.optimize(n_trials=25)
+best_params, best_score = hypeparamters.optimize(n_trials=15)
 
 
 # Cross Validation
 lgbm = LGBMClassifier(**best_params)
-y_pred, y_prob = MachineLearning.CrossValidationPredict(lgbm, X, y, number_folds=5, threshold=0.5)
+y_pred, y_prob = MachineLearning.CrossValidationPredict(lgbm, X, y, number_folds=3, threshold=0.5)
 
 # Scores
 metrics = Metrics.get_metrics(y, y_pred, y_prob)
