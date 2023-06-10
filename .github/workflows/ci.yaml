@@ -7,8 +7,8 @@ jobs:
     #container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
 
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4   
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v3   
       - uses: iterative/setup-cml@v1
 
       - name: Install Dependencies
@@ -29,10 +29,16 @@ jobs:
         run: |       
 
           echo "## Params" >> report.md
+
           cat reports/params/params.json >> report.md
+
           echo "## Metrics" >> report.md
+
           cat reports/metrics/metrics.json >> report.md
+
           echo "## Plots" >> report.md
-          echo "![](./reports/plots/.png)" >> report.md
+
+          echo "![](reports/plots/confusion_matrix.png)" >> report.md
+
 
           cml comment create report.md
