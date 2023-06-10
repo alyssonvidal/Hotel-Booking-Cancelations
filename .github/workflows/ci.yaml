@@ -23,15 +23,16 @@ jobs:
         run: |
           python src/train.py
 
-      - name: Report DVC Compare
+      - name: Report DVC
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |       
 
-          dvc repro
+          echo "## Params" >> report.md
+          cat reports/params/params.json >> report.md
+          echo "## Metrics" >> report.md
+          cat reports/metrics/metrics.json >> report.md
+          echo "## Plots" >> report.md
+          echo "![](./reports/plots/.png)" >> report.md
 
-          echo "## Metrics" >> report.md
-          echo "## Metrics" >> report.md
-          git fetch --prune
-          dvc metrics diff --show-md main > report.md
           cml comment create report.md

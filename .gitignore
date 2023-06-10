@@ -7,7 +7,6 @@
 # reports/plots/confusion_matrix.png
 # reports/metrics/metrics.json
 
-
 #MLflow
 mlartifacts/
 mlruns/
@@ -21,9 +20,6 @@ help/
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
-*.so
 
 # Distribution / packaging
 .Python
@@ -70,19 +66,12 @@ coverage.xml
 .pytest_cache/
 cover/
 
-# Translations
-*.mo
-*.pot
-
 # Django stuff:
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
-instance/
-.webassets-cache
 
 # Scrapy stuff:
 .scrapy
