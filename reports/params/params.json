@@ -1,0 +1,1 @@
+{"objective": "binary", "boosting_type": "gbdt", "num_leaves": 180, "max_depth": 10, "learning_rate": 0.0997, "reg_alpha": 3.533e-05, "reg_lambda": 0.0017, "subsample_freq": 6, "min_child_samples": 11}

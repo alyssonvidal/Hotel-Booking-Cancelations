@@ -17,15 +17,25 @@ stages:
     cmd: python src/train.py
     deps:
     - path: data/data_processed/data_processed.csv
-      md5: 71e5a7701f7f8a1ea4184aebf65ba849
-      size: 7711882
+      md5: 932f707c888c26556ac413e3b17574d7
+      size: 1928446
     - path: src/train.py
-      md5: 2a7f61e00f5699af2fa83b146ace60f8
-      size: 2299
+      md5: adeac35e23e63e8b9d5cb714fac10cc8
+      size: 1966
     outs:
     - path: reports/metrics/metrics.json
-      md5: 3f519af7508670f2a290e07f82642735
-      size: 100
+      md5: be30bb53fbda66078b72dfa3d04d918d
+      size: 101
     - path: reports/plots/confusion_matrix.png
-      md5: aa391a22a0f6d5609a47377982e44c69
-      size: 27023
+      md5: b00916ad3d0427f153608575b96d4c10
+      size: 25367
+  process_data:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: src/preprocessing.py
+      md5: 7d8812f720061b97142852d69c942bcd
+      size: 528
+    outs:
+    - path: data/data_processed/data_processed.csv
+      md5: 932f707c888c26556ac413e3b17574d7
+      size: 1928446

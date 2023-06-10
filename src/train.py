@@ -55,3 +55,30 @@ os.makedirs(Path.PARAMS_FOLDER, exist_ok=True)
 with open(Path.PARAMS_PATH, 'w') as file:
     params_json = json.dumps(best_params)
     file.write(params_json)
+
+
+
+
+
+
+
+
+
+# stages:
+#   preprocessing:
+#     cmd: python src/preprocessing.py
+#     deps:
+#     - src/preprocessing.py
+#     - data/data_raw/data_raw.csv
+#     outs:
+#     - data/data_processed/data_processed.csv
+#   train:
+#     cmd: python src/train.py
+#     deps:
+#     - src/train.py
+#     - data/data_processed/data_processed.csv
+#     outs:
+#     - reports/plots/confusion_matrix.png
+#     metrics:
+#     - reports/metrics/metrics.json:
+#         cache: false
