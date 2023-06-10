@@ -23,7 +23,7 @@ jobs:
         run: |
           python src/train.py
 
-      - name: Report - DVC Compare
+      - name: Report DVC Compare
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |       

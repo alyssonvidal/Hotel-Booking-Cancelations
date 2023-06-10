@@ -15,3 +15,8 @@ dvc add data reports models
 
 git rm -r --cached 'data'
 git commit -m "stop tracking data"
+
+dvc add data/data_raw/data_raw.csv
+dvc add data/data_processed/data_processed.csv
+dvc add reports/plots/confusion_matrix.png
+dvc add reports/metrics/metrics.json

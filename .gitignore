@@ -2,6 +2,10 @@
 # /data
 # /models
 # /reports
+data/data_processed/data_processed.csv
+reports/plots/confusion_matrix.png
+reports/metrics/metrics.json
+
 
 #MLflow
 mlartifacts/
