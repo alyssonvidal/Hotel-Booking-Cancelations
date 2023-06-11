@@ -5,3 +5,16 @@ python --version #mostra versão do python
 
 pip install black isort flake8 #instala pacotes dev
 settings.json #ajustar as configurações no vscode
+
+
+
+
+
+!pip install -U scikit-learn
+!pip install lightgbm
+!pip install optuna
+!pip install category-encoders
+!pip install -q -U torch watermark
+!pip install -q -U scikit-learn watermark
+!pip install graphviz
+!pip install shap
