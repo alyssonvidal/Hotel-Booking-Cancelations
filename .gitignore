@@ -7,6 +7,13 @@ reports/metrics/metrics.json
 # #MLflow
 mlartifacts/
 mlflow/
+mlartifacts/*
+mlflow/*
+
+model/
+
+
+
 
 # Scrap Ideia File 
 rascunho/
