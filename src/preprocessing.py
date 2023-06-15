@@ -54,6 +54,7 @@ def process_static(df):
 
     return df
 
+
 def process_featurization(df):
     # Create Some Features
     df['meal'] = df['meal'].replace("Undefined", "SC")
@@ -95,6 +96,7 @@ def split_data(df, test_size=0.2, random_state=42):
     return train_df, test_df
 
 
+@hydra.main(config_path="../config", config_name="main.yaml", version_base=None)
 def preprocess_data(config: DictConfig):
     data_raw = pd.read_csv(config.raw_data.path)
     df = process_nans(data_raw, config.processed_data.missing_thr)
@@ -118,3 +120,6 @@ def preprocess_data(config: DictConfig):
     #train_file = str(config.train.dir) + "/train_" + horario_atual + ".csv"
     #test_file = str(config.test.dir) + "/test" + horario_atual + ".csv"
     #return df_processed
+
+if __name__ == "__main__":
+    preprocess_data()

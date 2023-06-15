@@ -21,15 +21,15 @@ class bcolors:
 
 @hydra.main(config_path="../config", config_name="main.yaml", version_base=None)
 def pipeline(config: DictConfig):
-    #mlflow.set_experiment("fraud")
+
     load_raw_data(config)
     print(f"{bcolors.OKCYAN}Data is loaded{bcolors.ENDC}")
+
     preprocess_data(config)
     print(f"{bcolors.OKCYAN}Preprocessing is done{bcolors.ENDC}")
 
     train_model(config)#file_processed, params=None
     print(f"{bcolors.OKCYAN}Training is done{bcolors.ENDC}")
-
 
 if __name__ == "__main__":
     pipeline()
