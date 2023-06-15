@@ -1,0 +1,73 @@
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .
+
+
+raw_data:
+  dir: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_raw
+  path: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_raw/data_raw.csv
+
+raw_process:
+  dir: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/
+  path: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/data_processed.csv
+  missing_thr: 0.95  
+
+preparation:
+  keep_columns:
+  - hotel
+  - lead_time
+  - arrival_date_year
+  - arrival_date_week_number
+  - meal
+  - market_segment
+  - distribution_channel
+  - is_repeated_guest
+  - previous_cancellations
+  - previous_bookings_not_canceled
+  - booking_changes
+  - agent
+  - company
+  - customer_type
+  - adr
+  - required_car_parking_spaces
+  - people
+  - days_stay
+  - continentes
+
+  target:
+  - is_canceled
+
+split_data:  
+  test_size: 0.2
+  shuffle: True
+
+train:
+  dir: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/train
+  path: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/train/train.csv
+
+test:
+  dir: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/test
+  path: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/test/test.csv
+
+
+crossvalidation:
+  number_folds: 5
+  threshold: 0.5
+
+lgbm_params:
+  objective: binary
+  boosting_type: gbdt
+  num_leaves: 300
+  max_depth: 12
+  learning_rate: 0.075
+  reg_alpha: 0.002
+  reg_lambda: 0.025
+  subsample_freq: 1
+  min_child_samples: 1
+  scale_pos_weight: 2.7
+
+plots:
+  dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/plots/
+  confusion_matrix:    
+    path: /home/alysson/projects/Hotel-Booking-Cancelations/src/plots/confusion_matrix.png

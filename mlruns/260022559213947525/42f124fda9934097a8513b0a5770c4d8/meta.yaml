@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/42f124fda9934097a8513b0a5770c4d8/artifacts
+deleted_time: 1686833895888
+end_time: 1686832534083
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: 42f124fda9934097a8513b0a5770c4d8
+run_name: unruly-mule-342
+run_uuid: 42f124fda9934097a8513b0a5770c4d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686832528521
+status: 3
+tags: []
+user_id: unknown

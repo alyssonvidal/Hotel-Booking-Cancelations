@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/8f1f338249bc45bcabf390a7a1bff355/artifacts
+deleted_time: 1686833895884
+end_time: 1686797419162
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: 8f1f338249bc45bcabf390a7a1bff355
+run_name: wise-bear-952
+run_uuid: 8f1f338249bc45bcabf390a7a1bff355
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686797414934
+status: 3
+tags: []
+user_id: unknown

@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/995da8cbdac1442e949baa46371ad28b/artifacts
+deleted_time: 1686833895879
+end_time: 1686797226802
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: 995da8cbdac1442e949baa46371ad28b
+run_name: salty-gnu-271
+run_uuid: 995da8cbdac1442e949baa46371ad28b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686797223883
+status: 4
+tags: []
+user_id: unknown

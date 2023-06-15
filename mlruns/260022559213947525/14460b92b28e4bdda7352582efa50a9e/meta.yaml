@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/14460b92b28e4bdda7352582efa50a9e/artifacts
+deleted_time: 1686833895885
+end_time: 1686797520526
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: 14460b92b28e4bdda7352582efa50a9e
+run_name: awesome-gnu-205
+run_uuid: 14460b92b28e4bdda7352582efa50a9e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686797516610
+status: 3
+tags: []
+user_id: unknown

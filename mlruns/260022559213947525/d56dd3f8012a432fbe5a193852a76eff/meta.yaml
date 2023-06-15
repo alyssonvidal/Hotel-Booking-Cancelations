@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/d56dd3f8012a432fbe5a193852a76eff/artifacts
+deleted_time: 1686833895883
+end_time: 1686797378787
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: d56dd3f8012a432fbe5a193852a76eff
+run_name: gifted-rook-224
+run_uuid: d56dd3f8012a432fbe5a193852a76eff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686797376389
+status: 4
+tags: []
+user_id: unknown

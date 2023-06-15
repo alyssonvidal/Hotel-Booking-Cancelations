@@ -1,0 +1,15 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/a4f6a41dbcad448a804b64c7bc854393/artifacts
+end_time: 1686848797643
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: active
+run_id: a4f6a41dbcad448a804b64c7bc854393
+run_name: primeiro projeto
+run_uuid: a4f6a41dbcad448a804b64c7bc854393
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686848793445
+status: 3
+tags: []
+user_id: alysson

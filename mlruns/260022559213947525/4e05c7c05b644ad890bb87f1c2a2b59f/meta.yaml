@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/4e05c7c05b644ad890bb87f1c2a2b59f/artifacts
+deleted_time: 1686833895877
+end_time: 1686796158282
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: 4e05c7c05b644ad890bb87f1c2a2b59f
+run_name: smiling-owl-76
+run_uuid: 4e05c7c05b644ad890bb87f1c2a2b59f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686796153377
+status: 3
+tags: []
+user_id: unknown

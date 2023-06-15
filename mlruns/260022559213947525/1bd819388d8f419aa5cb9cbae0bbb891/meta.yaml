@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/1bd819388d8f419aa5cb9cbae0bbb891/artifacts
+deleted_time: 1686833895886
+end_time: 1686829251299
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: 1bd819388d8f419aa5cb9cbae0bbb891
+run_name: kindly-goose-556
+run_uuid: 1bd819388d8f419aa5cb9cbae0bbb891
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686829245384
+status: 3
+tags: []
+user_id: unknown

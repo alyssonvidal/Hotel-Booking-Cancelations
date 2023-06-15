@@ -1,21 +1,36 @@
 import kaggle
 from kaggle.api.kaggle_api_extended import KaggleApi
-import subprocess
 import os
-from config import Path
+#from config import Path
+import hydra
+from omegaconf import OmegaConf, DictConfig, ListConfig
 
-#!mkdir ~/.kagglegi 
-#!cp /home/alysson/Downloads/kaggle.json /home/alysson/.kaggle/kaggle.json
-#!chmod 600 /home/alysson/.kaggle/kaggle.json
+from zipfile import ZipFile
 
-api = KaggleApi()
-api.authenticate()
 
-api.dataset_download_file('jessemostipak/hotel-booking-demand', file_name='hotel_bookings.csv')
+@hydra.main(config_path="../config", config_name="main.yaml", version_base=None)
+def load_raw_data(config: DictConfig):
 
-os.makedirs(Path.DATA_RAW_FOLDER, exist_ok=True)
+    if not os.path.exists(os.path.expanduser("~/.kaggle/kaggle.json")):
+            raise Exception("Kaggle API key not found.")
 
-#Adicionar permissão de execução ao script
+    os.makedirs(config.raw_data.dir, exist_ok=True)
+    kaggle.api.dataset_download_files('jessemostipak/hotel-booking-demand', path=config.raw_data.dir)
 
-subprocess.run(["chmod", "+x", str(Path.SCRIPTS_FOLDER / "get_data.sh")])
-subprocess.run(str(Path.SCRIPTS_FOLDER / "get_data.sh"), shell=True)
+    zip_file = os.path.join(config.raw_data.dir, "hotel-booking-demand.zip")
+
+    with ZipFile(zip_file, "r") as zip_ref:
+            zip_ref.extractall(config.raw_data.dir)
+
+    old_name = os.path.join(config.raw_data.dir, "hotel_bookings.csv")
+    new_name = os.path.join(config.raw_data.dir, "data_raw.csv")
+
+    os.rename(old_name, new_name)
+    os.remove(zip_file)
+
+    print(f'Data raw path: {new_name}') 
+    
+
+if __name__ == "__main__":
+    load_raw_data()
+    #print(Path.HOME_DIR)

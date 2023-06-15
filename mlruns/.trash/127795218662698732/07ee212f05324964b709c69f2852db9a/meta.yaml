@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/127795218662698732/07ee212f05324964b709c69f2852db9a/artifacts
+deleted_time: 1686795879568
+end_time: 1686782920954
+entry_point_name: ''
+experiment_id: '127795218662698732'
+lifecycle_stage: deleted
+run_id: 07ee212f05324964b709c69f2852db9a
+run_name: skillful-wolf-575
+run_uuid: 07ee212f05324964b709c69f2852db9a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686782920950
+status: 4
+tags: []
+user_id: unknown

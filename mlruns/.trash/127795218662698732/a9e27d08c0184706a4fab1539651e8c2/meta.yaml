@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/127795218662698732/a9e27d08c0184706a4fab1539651e8c2/artifacts
+deleted_time: 1686795879568
+end_time: 1686782797731
+entry_point_name: ''
+experiment_id: '127795218662698732'
+lifecycle_stage: deleted
+run_id: a9e27d08c0184706a4fab1539651e8c2
+run_name: capricious-chimp-378
+run_uuid: a9e27d08c0184706a4fab1539651e8c2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686782797726
+status: 4
+tags: []
+user_id: unknown

@@ -1,0 +1,16 @@
+artifact_uri: file:///home/alysson/projects/Hotel-Booking-Cancelations/mlruns/260022559213947525/09430902d114473a86fc46f405f9561f/artifacts
+deleted_time: 1686833895887
+end_time: 1686829332199
+entry_point_name: ''
+experiment_id: '260022559213947525'
+lifecycle_stage: deleted
+run_id: 09430902d114473a86fc46f405f9561f
+run_name: marvelous-shoat-738
+run_uuid: 09430902d114473a86fc46f405f9561f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686829327261
+status: 3
+tags: []
+user_id: unknown
