@@ -111,13 +111,7 @@ def train_model(config: DictConfig):
         mlflow.lightgbm.log_model(lgbm, "lgbm")
                 
         #mlflow.log_artifact(config.plots.confusion_matrix, 'confusion_matrix')
-        mlflow.set_tags({"Tag1 ":"Digite tag1", "Tag3":"Digite Tag2"})
-        
-        # labels = ["Não Cancelado", "Cancelado"]
-        # cm = confusion_matrix(y, y_pred)
-        # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
-        # disp.plot(cmap="Blues", values_format="d")
-        # plt.savefig(config.plots.confusion_matrix.path, dpi=120)
+        mlflow.set_tags({"Tag1 ":"Digite tag1", "Tag3":"Digite Tag2"})       
 
         print(scores)
 

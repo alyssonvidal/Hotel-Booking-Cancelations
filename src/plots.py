@@ -9,4 +9,4 @@ def ConfusionMatrixPlot(y, yhat, config, save=False):
         disp.plot(cmap="Blues", values_format="d")
 
         if save == True:
-            plt.savefig(config.plots.dir, dpi=120)
+            plt.savefig(config.plots.confusion_matrix.path, dpi=120)

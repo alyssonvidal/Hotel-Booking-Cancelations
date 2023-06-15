@@ -1,7 +1,15 @@
 # DVC Tracked Files
 #data/data_processed/data_processed.csv
 #data/data_raw/data_raw.csv
-data/
+#data/
+
+#Data Files Tracked by DVC
+data/data_raw/data_raw.csv
+
+#Data Files Not Tracked
+data/data_processed/data_processed.csv
+data/data_processed/train/train.csv
+data/data_processed/test/test.csv
 
 # MLflow
 mlartifacts/
@@ -13,6 +21,7 @@ outputs/
 *.db
 
 # Scrap Ideia File 
+images/
 rascunho/
 help/
 

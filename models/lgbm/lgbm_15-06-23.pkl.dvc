@@ -1,0 +1,5 @@
+outs:
+- md5: 3c4b7167a3f1f18cd147d2b5d8b64823
+  size: 699
+  hash: md5
+  path: lgbm_15-06-23.pkl
