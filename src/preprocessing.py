@@ -97,7 +97,7 @@ def split_data(df, test_size=0.2, random_state=42):
 
 def preprocess_data(config: DictConfig):
     data_raw = pd.read_csv(config.raw_data.path)
-    df = process_nans(data_raw, config.raw_process.missing_thr)
+    df = process_nans(data_raw, config.processed_data.missing_thr)
     df = process_stranges(df) 
     df = process_duplicated(df)
     df = process_static(df)    
@@ -105,18 +105,16 @@ def preprocess_data(config: DictConfig):
     train_df, test_df = split_data(df)
 
 
-    os.makedirs(config.raw_process.dir, exist_ok=True)
-    df.to_csv(config.raw_process.path, index=False) 
+    os.makedirs(config.processed_data.dir, exist_ok=True)
+    df.to_csv(config.processed_data.path, index=False)     
 
-
-    #horario_atual = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    os.makedirs(config.train.dir, exist_ok=True) 
-    #train_file = str(config.train.dir) + "/train_" + horario_atual + ".csv"
+    os.makedirs(config.train.dir, exist_ok=True)     
     train_df.to_csv(config.train.path, index=False)
 
     os.makedirs(config.test.dir, exist_ok=True)
-    #test_file = str(config.test.dir) + "/test" + horario_atual + ".csv"
     test_df.to_csv(config.test.path, index=False)  
 
+    #horario_atual = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    #train_file = str(config.train.dir) + "/train_" + horario_atual + ".csv"
+    #test_file = str(config.test.dir) + "/test" + horario_atual + ".csv"
     #return df_processed

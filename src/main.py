@@ -1,18 +1,10 @@
-import sys
-import mlflow
-
 import hydra
 from omegaconf import OmegaConf, DictConfig, ListConfig
-
 
 # Pipeline
 from get_data import load_raw_data
 from preprocessing import preprocess_data
 from train import train_model
-
-#from prep import preprocess_data
-
-#from config import bcolors
 
 
 class bcolors:

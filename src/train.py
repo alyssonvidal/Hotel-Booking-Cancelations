@@ -76,7 +76,7 @@ def SelectedFeatures(config: DictConfig):
 @hydra.main(config_path="../config", config_name="main.yaml", version_base=None)
 def train_model(config: DictConfig):
 
-    df = load_train('./data/data_processed/train/train.csv')
+    df = load_train(config.train.path)
     df = encoding(df)
     FEATURES, TARGET = SelectedFeatures(config)
     
