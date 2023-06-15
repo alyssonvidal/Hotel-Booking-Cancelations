@@ -6,10 +6,11 @@ data/
 # MLflow
 mlartifacts/
 mlflow/
-mlartifacts/*
+mlruns/
 mlflow/*
 outputs/
 *.log
+*.db
 
 # Scrap Ideia File 
 rascunho/
