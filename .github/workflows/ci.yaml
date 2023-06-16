@@ -24,6 +24,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Pull from gdrive
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           dvc pull    
 
