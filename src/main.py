@@ -4,7 +4,9 @@ from omegaconf import OmegaConf, DictConfig, ListConfig
 # Pipeline
 from get_data import load_raw_data
 from preprocessing import preprocess_data
+from preparation import preparation
 from train import train_model
+from evaluate import evaluate
 
 
 class bcolors:
@@ -26,10 +28,16 @@ def pipeline(config: DictConfig):
     print(f"{bcolors.OKCYAN}Data is loaded{bcolors.ENDC}")
 
     preprocess_data(config)
-    print(f"{bcolors.OKCYAN}Preprocessing is done{bcolors.ENDC}")
+    print(f"{bcolors.OKCYAN}Data Preprocessing is done{bcolors.ENDC}")
 
-    train_model(config)#file_processed, params=None
+    preparation(config)
+    print(f"{bcolors.OKCYAN}Data Preparation is done{bcolors.ENDC}")
+
+    train_model(config)
     print(f"{bcolors.OKCYAN}Training is done{bcolors.ENDC}")
+
+    evaluate(config)
+    print(f"{bcolors.OKCYAN}Evaluating is done{bcolors.ENDC}")
 
 if __name__ == "__main__":
     pipeline()

@@ -2,18 +2,16 @@ import pandas as pd
 import datetime
 import os
 import hydra
-from omegaconf import OmegaConf, DictConfig, ListConfig
-
+from omegaconf import OmegaConf, DictConfig
 
 import numpy as np
 import pycountry
 import pycountry_convert as pc
-from sklearn.model_selection import train_test_split
 
 def process_nans(df: pd.DataFrame, drop_thr: float) -> pd.DataFrame: #=0.95
     for col in df.columns:
         nulls_prop = df[col].isnull().mean()
-        #print(f"{col}: {100*nulls_prop:.6f}% missing")
+        print(f"{col}: {100*nulls_prop:.6f}% missing")
         
         # Drop if missing more than a threshold
         if nulls_prop >= drop_thr:
@@ -36,13 +34,17 @@ def process_stranges(df):
     # Drop negative ADR
     df = df.loc[~(df['adr'] < 0)]
     end = len(df)
-    print(f"Total Strange Rows: {init-end}")
+    print(f"Total Dropped Strange Rows: {init-end}")
 
     return df
 
 def process_duplicated(df):
+    init = len(df)
     # Drop Duplicated and keep last record
     df = df.drop_duplicates(keep='last')
+    end = len(df)
+    print(f"Total Dropped Duplicated Rows: {init-end}")
+
     return df
 
 
@@ -88,38 +90,23 @@ def process_featurization(df):
 
     df.loc[df['country'] == 'PRT', 'continentes'] = 'Native'
 
+    print('Features Created: meal, people, kids, days_stay, country_name, continentes')
+
     return df
-
-
-def split_data(df, test_size=0.2, random_state=42):
-    train_df, test_df = train_test_split(df, test_size=test_size, shuffle= True, random_state=random_state)
-    return train_df, test_df
 
 
 @hydra.main(config_path="../config", config_name="main.yaml", version_base=None)
 def preprocess_data(config: DictConfig):
     data_raw = pd.read_csv(config.raw_data.path)
-    df = process_nans(data_raw, config.processed_data.missing_thr)
+    df = process_nans(data_raw, config.raw_data.missing_thr)
     df = process_stranges(df) 
     df = process_duplicated(df)
     df = process_static(df)    
     df = process_featurization(df)
-    train_df, test_df = split_data(df)
-
 
     os.makedirs(config.processed_data.dir, exist_ok=True)
-    df.to_csv(config.processed_data.path, index=False)     
-
-    os.makedirs(config.train.dir, exist_ok=True)     
-    train_df.to_csv(config.train.path, index=False)
-
-    os.makedirs(config.test.dir, exist_ok=True)
-    test_df.to_csv(config.test.path, index=False)  
-
-    #horario_atual = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    #train_file = str(config.train.dir) + "/train_" + horario_atual + ".csv"
-    #test_file = str(config.test.dir) + "/test" + horario_atual + ".csv"
-    #return df_processed
+    df.to_csv(config.processed_data.path, index=False)
+    
 
 if __name__ == "__main__":
     preprocess_data()

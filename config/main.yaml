@@ -7,11 +7,11 @@ hydra:
 raw_data:
   dir: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_raw
   path: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_raw/data_raw.csv
+  missing_thr: 0.95  
 
 processed_data:
   dir: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed
-  path: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/data_processed.csv
-  missing_thr: 0.95  
+  path: /home/alysson/projects/Hotel-Booking-Cancelations/data/data_processed/data_processed.csv  
 
 preparation:
   keep_columns:
@@ -67,7 +67,29 @@ lgbm_params:
   min_child_samples: 1
   scale_pos_weight: 2.7
 
-plots:
-  dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/plots/
-  confusion_matrix:    
-    path: /home/alysson/projects/Hotel-Booking-Cancelations/src/plots/confusion_matrix.png
+model:
+  dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/models/
+  path: /home/alysson/projects/Hotel-Booking-Cancelations/src/models/lgbm.pkl
+
+reports:
+  plots:
+    dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/plots
+    train:
+      dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/plots/train 
+      confusion_matrix:    
+        path: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/plots/train/confusion_matrix.png
+    test:
+      dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/plots/test 
+      confusion_matrix:    
+        path: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/plots/test/confusion_matrix.png
+        
+  metrics:
+    dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/metrics
+    train:
+      dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/metrics/train 
+      scores:    
+        path: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/metrics/train/scores.json
+    test:
+      dir: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/metrics/test 
+      scores:    
+        path: /home/alysson/projects/Hotel-Booking-Cancelations/src/reports/metrics/test/scores.json
