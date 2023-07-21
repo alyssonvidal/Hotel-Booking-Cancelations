@@ -1,0 +1,4 @@
+hotel,lead_time,arrival_date_year,arrival_date_week_number,meal,market_segment,distribution_channel,is_repeated_guest,previous_cancellations,previous_bookings_not_canceled,booking_changes,agent,company,customer_type,adr,required_car_parking_spaces,people,days_stay,continentes
+City Hotel,18,2017,53,BB,Direct,Direct,1,0,0,0,0,0,Transient,123,0,1,2,Native
+Resort Hotel,26,2016,12,BB,Direct,Direct,0,0,0,1,0,0,Contract,95,1,4,7,South America
+City Hotel,6,2017,12,BB,Online TA,TA/TO,0,1,0,1,0,0,Transient-Party,180,0,3,4,Native

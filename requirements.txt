@@ -12,3 +12,4 @@ pycountry-convert
 mlflow
 optuna
 kaggle
+streamlit

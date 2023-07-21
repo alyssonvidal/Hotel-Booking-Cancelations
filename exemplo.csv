@@ -1,0 +1,2 @@
+hotel,lead_time,arrival_date_year,arrival_date_week_number,meal,market_segment,distribution_channel,is_repeated_guest,previous_cancellations,previous_bookings_not_canceled,booking_changes,agent,company,customer_type,adr,required_car_parking_spaces,people,days_stay,continentes
+0,18,2017,53,1,4,1,1,0,0,0,0,0,2,0,0,1,2,1
